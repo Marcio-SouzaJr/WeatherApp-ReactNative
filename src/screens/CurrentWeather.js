@@ -39,7 +39,7 @@ const CurrentWeather = ({ weatherData }) => {
     <SafeAreaView
       style={[
         wrapper,
-        { backgroundColor: weatherType[weatherCondition].backgroundColor },
+        { backgroundColor: weatherType[weatherCondition]?.backgroundColor },
       ]}
     >
       <ScrollView
@@ -52,11 +52,11 @@ const CurrentWeather = ({ weatherData }) => {
       <View
         style={[
           container1,
-          { backgroundColor: weatherType[weatherCondition].backgroundColor2 },
+          { backgroundColor: weatherType[weatherCondition]?.backgroundColor2 },
         ]}
       >
         <Feather
-          name={weatherType[weatherCondition].icon}
+          name={weatherType[weatherCondition]?.icon}
           size={100}
           color={"white"}
         />
@@ -71,8 +71,8 @@ const CurrentWeather = ({ weatherData }) => {
         />
       </View>
       <RowText
-        messageOne={weather[0].description}
-        messageTwo={weatherType[weatherCondition].message}
+        messageOne={weather[0]?.description}
+        messageTwo={weatherType[weatherCondition]?.message}
         containerStyles={bodyWrapper}
         messageOneStyles={description}
         messageTwoStyles={message}
@@ -130,10 +130,10 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   description: {
-    fontSize: 48,
+    fontSize: 43,
   },
   message: {
-    fontSize: 30,
+    fontSize: 25,
   },
   contentContainer: {
     flex: 1,

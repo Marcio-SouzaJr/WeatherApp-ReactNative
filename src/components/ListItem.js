@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
@@ -9,8 +10,8 @@ const ListItem = (props) => {
   const { dt_txt, min, max, condition } = props;
   const { dateTextWrapper, item, date, temp } = styles;
   return (
-    <View style={[item, {backgroundColor: weatherType[condition].backgroundColor}]}>
-      <Feather name={weatherType[condition].icon} size={50} color={"#ffd300"} />
+    <View style={[item, {backgroundColor: weatherType[condition]?.backgroundColor}]}>
+      <Feather name={weatherType[condition]?.icon} size={50} color={"#ffd300"} />
       <View style={dateTextWrapper}>
         <Text style={date}>{moment(dt_txt).format("dddd")}</Text>
         <Text style={date}>{moment(dt_txt).format("H:mm")}</Text>

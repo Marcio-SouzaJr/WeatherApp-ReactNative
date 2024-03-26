@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import React from "react";
 import {
@@ -5,7 +6,6 @@ import {
   SafeAreaView,
   StyleSheet,
   ImageBackground,
-  StatusBar,
   View,
 } from "react-native";
 import IconText from "../components/IconText";
