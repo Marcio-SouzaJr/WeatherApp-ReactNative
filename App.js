@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import Tabs from "./src/components/Tabs";
+import * as Location from "expo-location";
+import { WEATHER_API_KEY } from "@env";
+import { useGetWeather } from "./src/hooks/useGetWeather";
+const App = () => {
+  const [loading, error, weather] = useGetWeather()
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+
+  if (weather && weather.list){
+    return (
+      <NavigationContainer>
+        <Tabs weather={weather}/>
+      </NavigationContainer>
+    );
+  }
+
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size={"large"} color={"#0000ff"} />
+      </View>
+    );
+};
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
+export default App;
